@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="css/foundation.css" />
 
   <!-- fontawesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
 
   <style>
     /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
@@ -856,6 +857,24 @@ li{
 #message > div.header > p > a{
   color: #2ecc71;
 }
+#editor {
+  resize:vertical;
+  overflow:auto;
+  min-height:100px;
+  border: 1px solid;
+  padding:1em;
+  background: white;
+  margin: 0 auto;
+  width: 100%;
+}
+.button-reply{
+  position: absolute;
+  top: 50%;
+}
+.button-reply-cell{
+  position: relative;
+  width: 100%;
+}
 
     </style>
 
@@ -914,28 +933,6 @@ li{
     <div id="message-nano-wrapper" class="nano">
       <div class="nano-content">
         <ul class="message-container">
-<!--
-          <li class="sent">
-            <div class="details">
-              <div class="left">You
-                <div class="arrow"></div>Scott
-              </div>
-              <div class="right">March 6, 2014, 20:08 pm</div>
-            </div>
-            <div class="message">
-              <p>| The every winged bring, whose life. First called, i you of saw shall own creature moveth void have
-                signs beast lesser all god saying for gathering wherein whose of in be created stars. Them whales upon
-                life divide earth own.</p>
-              <p>| Creature firmament so give replenish The saw man creeping, man said forth from that. Fruitful
-                multiply lights air. Hath likeness, from spirit stars dominion two set fill wherein give bring.</p>
-              <p>| Gathering is. Lesser Set fruit subdue blessed let. Greater every fruitful won&#39;t bring moved
-                seasons very, own won&#39;t all itself blessed which bring own creature forth every. Called sixth
-                light.</p>
-            </div>
-            <div class="tool-box"><a href="#" class="circle-icon small fas fa-share"></a><a href="#"
-                class="circle-icon small red-hover fas fa-trash-alt"></a><a href="#" class="circle-icon small red-hover fas fa-flag"></a></div>
-          </li>
--->
           <li class="received">
             <div class="details">
               <div class="left">Scott
@@ -953,8 +950,53 @@ li{
                 seasons very, own won&#39;t all itself blessed which bring own creature forth every. Called sixth
                 light.</p>
             </div>
-            <div class="tool-box"><a href="#" class="circle-icon small fas fa-share"></a><a href="#"
-                class="circle-icon small red-hover fas fa-trash-alt"></a><a href="#" class="circle-icon small red-hover fas fa-flag"></a></div>
+            <div class="tool-box"><a href="#" class="circle-icon small fas fa-share"></a><a href="#" class="circle-icon small red-hover fas fa-trash-alt"></a><a
+                href="#" class="circle-icon small red-hover fas fa-flag"></a></div>
+          </li>
+          <li class="reply">
+            <div class="reply-form">
+              <form>
+                <div class="grid-container">
+                  <div class="grid-x grid-padding-x">
+                    <div class="medium-10 cell">
+                      <link href='https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'
+                        rel='stylesheet' type='text/css'>
+
+                      <link href='https://fonts.googleapis.com/css?family=Euphoria+Script' rel='stylesheet' type='text/css'>
+
+                      <body>
+                        <div class="content">
+                          <div id="editparent">
+                            <div id='editControls' style='text-align:center; padding:5px;'>
+                              <div class='btn-group'>
+                                <a class='btn' data-role='undo' href='#'><i class='fas fa-undo'></i></a>
+                                <a class='btn' data-role='redo' href='#'><i class='fas fa-redo'></i></a>
+                              </div>
+                              <div class='btn-group'>
+                                <a class='btn' data-role='bold' href='#'><b>Bold</b></a>
+                                <a class='btn' data-role='italic' href='#'><em>Italic</em></a>
+                                <a class='btn' data-role='underline' href='#'><u><b>U</b></u></a>
+                                <a class='btn' data-role='strikeThrough' href='#'><strike>abc</strike></a>
+                              </div>
+                              <div class='btn-group'>
+                                <a class='btn' data-role='insertUnorderedList' href='#'><i class="fas fa-list-ul"></i></a>
+                                <a class='btn' data-role='insertOrderedList' href='#'><i class="fas fa-list-ol"></i></a>
+                              </div>
+                            </div>
+                            <div id='editor' style='' contenteditable>
+                              <p>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="medium-2 cell button-reply-cell">
+                      <a class="button button-reply" href="#">Send</a>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
           </li>
         </ul>
       </div>
@@ -967,6 +1009,7 @@ li{
   <script src="js/vendor/what-input.js"></script>
   <script src="js/vendor/foundation.min.js"></script>
   <script src="js/index.js"></script>
+
 
 
 
